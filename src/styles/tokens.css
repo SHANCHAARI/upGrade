@@ -1,0 +1,152 @@
+/* upGrade PALETTE PATCH: Zero-Blue Warm Apple HIG Design Tokens
+   Light: "Biscuit" (#F1E6D3) + Terracotta (#C2502A)
+   Dark:  "Deep Black" (#050505) + Warm Orange (#FF7A45)
+   Rule Zero: Zero blue-family pixels anywhere. Warm neutrals only (R >= G >= B). */
+
+:root {
+  /* 4pt Base Spacing Scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  /* Border Radii */
+  --radius-control: 12px;
+  --radius-card: 18px;
+  --radius-hero: 24px;
+  --radius-pill: 9999px;
+
+  /* Font Stack */
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
+  --font-serif: "Newsreader", "Charter", "Georgia", serif;
+  --font-stack: var(--font-sans);
+
+  /* Motion Curves */
+  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --spring: cubic-bezier(0.32, 0.72, 0, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+
+  /* LIGHT MODE: "CREATIVE LINEN & TERRACOTTA" */
+  --bg: #F7F3EB;
+  --surface: #FCFAF6;
+  --surface-2: #F2ECE0;
+  --surface-elevated: #FFFFFF;
+  --fill: rgba(100, 75, 45, 0.08);
+  --fill-secondary: rgba(100, 75, 45, 0.05);
+  --fill-tertiary: rgba(100, 75, 45, 0.025);
+  --separator: rgba(90, 65, 35, 0.12);
+  --hairline: rgba(90, 65, 35, 0.18);
+
+  /* Warm Labels (High contrast, refined editorial tones) */
+  --label: #1A1612;
+  --label-2: #544B3E;
+  --label-3: #6E6353;
+  --label-inverse: #FCFAF6;
+
+  /* Accent (Terracotta) */
+  --accent: #C2502A;
+  --accent-hover: #CF5C35;
+  --accent-pressed: #AE4522;
+  --on-accent: #FFF8EE;
+  --accent-tint: rgba(194, 80, 42, 0.12);
+  --accent-tint-strong: rgba(194, 80, 42, 0.24);
+
+  /* Category Colors (Light Mode) */
+  --cat-dev: #8E4FD6;
+  --cat-dev-bg: rgba(142, 79, 214, 0.12);
+
+  --cat-health: #E5382B;
+  --cat-health-bg: rgba(229, 56, 43, 0.12);
+
+  --cat-focus: #2FA84F;
+  --cat-focus-bg: rgba(47, 168, 79, 0.12);
+
+  --cat-growth: #E88A00;
+  --cat-growth-bg: rgba(232, 138, 0, 0.12);
+
+  --cat-mindset: #B8860B;
+  --cat-mindset-bg: rgba(184, 134, 11, 0.12);
+
+  /* Semantics */
+  --color-success: #2FA84F;
+  --color-warning: #E88A00;
+  --color-danger: #E5382B;
+
+  /* Shadows (Warm brown, never grey-blue) */
+  --shadow-sm: 0 1px 2px rgba(60, 40, 15, 0.06);
+  --shadow-card: 0 8px 30px rgba(60, 40, 15, 0.08);
+  --shadow-sheet: 0 20px 48px rgba(60, 40, 15, 0.16);
+
+  /* Translucent Chrome (Creative Linen Glass) */
+  --nav-bg: rgba(247, 243, 235, 0.85);
+  --tab-bg: rgba(247, 243, 235, 0.88);
+  --sheet-bg: #FCFAF6;
+  --sheet-backdrop: rgba(26, 22, 18, 0.38);
+  --popover-bg: rgba(252, 250, 246, 0.98);
+}
+
+/* DARK MODE: "DEEP BLACK" (#050505) */
+html.dark {
+  --bg: #050505;
+  --surface: #121110;
+  --surface-2: #1B1A18;
+  --fill: rgba(255, 245, 230, 0.08);
+  --fill-secondary: rgba(255, 245, 230, 0.05);
+  --fill-tertiary: rgba(255, 245, 230, 0.025);
+  --separator: rgba(255, 245, 230, 0.10);
+  --hairline: rgba(255, 245, 230, 0.14);
+
+  /* Warm White & Ochre/Grey Labels */
+  --label: #F5EFE6;
+  --label-2: #A89F92;
+  --label-3: #8A8175;
+  --label-inverse: #121110;
+
+  /* Accent (Warm Orange) */
+  --accent: #FF7A45;
+  --accent-hover: #FF8C5E;
+  --accent-pressed: #EB6A37;
+  --on-accent: #1A0F08;
+  --accent-tint: rgba(255, 122, 69, 0.15);
+  --accent-tint-strong: rgba(255, 122, 69, 0.28);
+
+  /* Category Colors (Dark Mode) */
+  --cat-dev: #B57BFF;
+  --cat-dev-bg: rgba(181, 123, 255, 0.16);
+
+  --cat-health: #FF5A4D;
+  --cat-health-bg: rgba(255, 90, 77, 0.16);
+
+  --cat-focus: #3DDC6A;
+  --cat-focus-bg: rgba(61, 220, 106, 0.16);
+
+  --cat-growth: #FFA21F;
+  --cat-growth-bg: rgba(255, 162, 31, 0.16);
+
+  --cat-mindset: #F2C94C;
+  --cat-mindset-bg: rgba(242, 201, 76, 0.16);
+
+  /* Semantics */
+  --color-success: #3DDC6A;
+  --color-warning: #FFA21F;
+  --color-danger: #FF5A4D;
+
+  /* Separation from surface contrast and 1px separators, not shadows */
+  --shadow-sm: none;
+  --shadow-card: none;
+  --shadow-sheet: 0 20px 48px rgba(0, 0, 0, 0.75);
+
+  /* Translucent Chrome (Deep Black Glass) */
+  --nav-bg: rgba(5, 5, 5, 0.72);
+  --tab-bg: rgba(5, 5, 5, 0.82);
+  --sheet-bg: #121110;
+  --sheet-backdrop: rgba(0, 0, 0, 0.75);
+  --popover-bg: rgba(18, 17, 16, 0.96);
+}

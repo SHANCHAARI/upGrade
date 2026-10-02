@@ -1,0 +1,171 @@
+@import "tailwindcss";
+@import "./styles/tokens.css";
+
+/* Base Body & Warm Apple HIG Reset */
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: var(--accent-tint-strong);
+  color: var(--label);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--label);
+  font-family: var(--font-stack);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  caret-color: var(--accent);
+  accent-color: var(--accent);
+  transition: background-color var(--duration-normal) var(--ease), color var(--duration-normal) var(--ease);
+}
+
+/* Subtle Art Studio Paper Texture Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+html.dark body::before {
+  opacity: 0.02;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Editorial Card & Hover Physics */
+.card-art {
+  background-color: var(--surface);
+  border: 1px solid var(--separator);
+  box-shadow: 0 1px 3px rgba(60, 40, 15, 0.04), 0 4px 16px rgba(60, 40, 15, 0.02);
+  transition: transform var(--duration-fast) var(--spring), box-shadow var(--duration-normal) var(--ease), border-color var(--duration-fast) var(--ease);
+}
+
+.card-art:hover {
+  border-color: rgba(194, 80, 42, 0.28);
+  box-shadow: 0 4px 20px rgba(60, 40, 15, 0.08), 0 1px 3px rgba(60, 40, 15, 0.04);
+}
+
+/* Typography Scale */
+.text-hero-numeral {
+  font-size: 80px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.text-page-title {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.028em;
+  line-height: 1.15;
+}
+
+.text-section-title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.text-card-title {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.014em;
+  line-height: 1.3;
+}
+
+.text-body-apple {
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.47;
+}
+
+.text-secondary-apple {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.text-caption-apple {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+/* Tabular Numerals */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Interactive Controls & Press Physics */
+button, a {
+  transition: transform var(--duration-fast) var(--spring), opacity var(--duration-fast) var(--ease), background-color var(--duration-fast) var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active, a:active {
+  transform: scale(0.97);
+}
+
+/* Hairline separator */
+.hairline-b {
+  border-bottom: 0.5px solid var(--separator);
+}
+
+.hairline-t {
+  border-top: 0.5px solid var(--separator);
+}
+
+/* Scrollbar Minimal */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--fill);
+  border-radius: var(--radius-pill);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Accessible focus ring (4px --accent at 35%) */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--accent-tint-strong);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
